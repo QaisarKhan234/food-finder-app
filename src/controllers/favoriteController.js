@@ -41,26 +41,6 @@ exports.addFavorite = async (req, res) => {
   }
 };
 
-// exports.addFavorite = async (req, res) => {
-//   const { bookId } = req.body;
-
-//   try {
-//     const book = await Book.findById(bookId);
-//     if (!book) return res.status(404).json({ message: 'Book not found' });
-
-//     const user = await User.findById(req.user._id);
-//     if (user.favorites.includes(bookId)) {
-//       return res.status(400).json({ message: 'Book already in favorites' });
-//     }
-
-//     user.favorites.push(bookId);
-//     await user.save();
-//     res.status(201).json(user.favorites);
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// };
-
 exports.getFavorites = async (req, res) => {
   try {
     const user = await User.findById(req.user._id).populate('favorites');
