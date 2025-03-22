@@ -3,7 +3,7 @@ const { getBooks, getBookById } = require('../controllers/bookController');
 const protect = require('../middleware/authMiddleware');
 const router = express.Router();
 
-router.get('/', protect, getBooks);
-router.get('/:id',protect, getBookById);
+router.get('/',  getBooks);
+router.get('/:id', getBookById);
 
 module.exports = router;
